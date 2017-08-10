@@ -26,14 +26,10 @@ if (Test-Path app.json) {rm app.json}
 [string] $enviroment = $args[2]
 [string] $component1 =  $args[3]
 [string] $version1 = $args[4]
-[string] $component2 =  $args[5]
-[string] $version2 = $args[6]
-[string] $component3 =  $args[7]
-[string] $version3 = $args[8]
  
 [string] $json
  
-If ($args.count -eq 9) {
+If ($args.count -eq 5) {
                 #Write-Host "SOLO UN COMPONENTE"
                 #Write-Host "{"
                 $json = "{"
@@ -48,15 +44,7 @@ If ($args.count -eq 9) {
     #Write-Host """versions"": [{"""
                 $json = $json + """versions"": [{"
     #Write-Host """component"": ""$component"","
-    $json = $json + """component"": ""$component1"","
-    #Write-Host """version"": ""$version""" 
-                $json = $json + """version"": ""$version1""}," 
-                #Write-Host """component"": ""$component"","
-    $json = $json + "{""component"": ""$component2"","
-    #Write-Host """version"": ""$version""" 
-                $json = $json + """version"": ""$version2""}," 
-                #Write-Host """component"": ""$component"","
-    $json = $json + "{""component"": ""$component3"","
+    $json = $json + """component"": ""$component3"","
     #Write-Host """version"": ""$version""" 
                 $json = $json + """version"": ""$version3""" 
     #Write-Host "  }]"
@@ -72,3 +60,5 @@ If ($args.count -eq 9) {
                 #New-Item E:\IBM\udclient\app.json -type file
                 Add-content app.json $json
                 if(Test-Path app.json){Write-Host "File created in D:\devops\udclient\script\app.json"}
+                
+	
